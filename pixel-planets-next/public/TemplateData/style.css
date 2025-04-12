@@ -1,0 +1,441 @@
+/* ================================================
+   Old-School Early 2000's / Retro CSS
+   Maintains a starry background, big pixel fonts,
+   neon colors, and basic responsiveness
+================================================ */
+
+/* Common Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body and Global Typography */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #000; /* Classic black background */
+  color: #0f0;      /* Neon green text */
+  font-family: "Courier New", monospace; /* Retro vibe */
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+/* Links, Headings, Basic Text */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+a {
+  color: #0f0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+p {
+  margin-bottom: 1em;
+}
+.glow-text {
+  text-shadow: 0 0 3px #0f0;
+}
+.back-link {
+  color: #0f0;
+  text-decoration: none;
+  font-weight: bold;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+.cta-button,
+.auth-button {
+  display: inline-block;
+  background: transparent;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 0.4em 1em;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0.2em;
+  text-transform: uppercase;
+}
+button:hover,
+.cta-button:hover,
+.auth-button:hover {
+  background: #0f0;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Secondary button variant */
+.secondary-button {
+  border-color: #f0f;
+  color: #f0f;
+}
+.secondary-button:hover {
+  background: #f0f;
+  color: #000;
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"],
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0.4em;
+  border: 1px solid #0f0;
+  background: #000;
+  color: #0f0;
+  width: 100%;
+  margin-bottom: 1em;
+}
+input:focus,
+textarea:focus {
+  outline: 1px dashed #0f0;
+}
+
+/* ================================================
+   HEADER & NAV
+================================================ */
+
+.floating-header,
+.page-header {
+  background: #000;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #0f0;
+}
+
+.page-header .logo {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.page-header .logo-icon {
+  width: 24px;
+  height: 24px;
+  background: url("/TemplateData/favicon.png") no-repeat center/contain;
+  margin-right: 0.5em;
+}
+
+/* Mobile Nav Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  color: #0f0;
+  border: 2px solid #0f0;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+}
+#main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+#main-nav li {
+  margin: 0;
+}
+#main-nav.open {
+  /* For small screens we can reveal this differently */
+}
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  #main-nav.open {
+    display: flex;
+    background: #111;
+    position: absolute;
+    top: 4em;
+    right: 1em;
+    padding: 1em;
+    border: 2px solid #0f0;
+  }
+}
+
+/* ================================================
+   STARS BACKGROUND
+================================================ */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #0f0;
+  animation: blink 2s infinite ease-in-out alternate;
+  opacity: 0.8;
+}
+@keyframes blink {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ================================================
+   HERO SECTION
+================================================ */
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2em 1em;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-image .gif {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1em;
+}
+.hero-buttons {
+  margin-top: 1em;
+}
+@media (max-width: 768px) {
+  .hero-image .gif {
+    width: 150px;
+  }
+}
+
+/* ================================================
+   LOGIN & FORMS
+================================================ */
+.login-container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 4em auto;
+  padding: 2em;
+  border: 2px solid #0f0;
+  background: #111;
+}
+.login-image {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.login-planet-animation {
+  width: 120px;
+  height: auto;
+}
+.auth-form {
+  margin-top: 1em;
+}
+.input-field {
+  margin-bottom: 1em;
+}
+.login-footer {
+  margin-top: 1em;
+  text-align: center;
+}
+
+/* status message styling */
+#error-message,
+.success-message {
+  margin-top: 1em;
+}
+.error-message {
+  color: #ff4444;
+}
+.success-message {
+  color: #44ff44;
+}
+
+/* ================================================
+   GAME PAGE
+================================================ */
+#game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  border-bottom: 2px solid #0f0;
+}
+#user-info {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+#unity-container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 2em auto;
+  border: 2px solid #0f0;
+  background: #111;
+  z-index: 1;
+}
+.unity-desktop canvas {
+  width: 100%;
+  height: auto;
+}
+#unity-loading-bar {
+  text-align: center;
+  padding: 1em;
+}
+#unity-warning {
+  color: #f00;
+  padding: 1em;
+  text-align: center;
+}
+.header-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+/* ================================================
+   ABOUT PAGE
+================================================ */
+.about-section {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+  border: 2px solid #0f0;
+  background: #111;
+  margin-bottom: 2em;
+}
+.about-section h2 {
+  margin-bottom: 0.5em;
+}
+.gif-container {
+  text-align: center;
+  margin-top: 1em;
+}
+.gif-container img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #0f0;
+}
+.planet-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1em;
+  margin: 1em 0;
+}
+.planet-example {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #0f0;
+  overflow: hidden;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+.feature-card {
+  padding: 1em;
+  border: 1px solid #0f0;
+  background: #000;
+}
+.process-list {
+  list-style: decimal inside;
+  margin: 1em 0;
+}
+.team-section .team-member {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+.member-avatar {
+  width: 64px;
+  height: 64px;
+  background: #333;
+}
+.member-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.2em;
+  color: #f0f;
+}
+.member-role {
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+#feedback-form {
+  max-width: 600px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+}
+#feedback-form label {
+  margin-bottom: 0.5em;
+}
+#feedback-form textarea {
+  min-height: 80px;
+  margin-bottom: 1em;
+}
+
+/* ================================================
+   FOOTER
+================================================ */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1em 0;
+  border-top: 2px solid #0f0;
+  margin-top: 2em;
+}
+
+/* ================================================
+   MEDIA QUERIES - Basic Responsiveness
+================================================ */
+@media (max-width: 600px) {
+  body {
+    font-size: 13px;
+  }
+  .login-container {
+    margin: 2em 1em;
+    padding: 1em;
+  }
+  .about-section {
+    margin: 1em;
+    padding: 1em;
+  }
+  .hero {
+    padding: 1em;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-section .team-member {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
